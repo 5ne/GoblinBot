@@ -1,9 +1,15 @@
+import { superscript, subscript } from "script-case";
+
 var myEnv;
 
 // setup client
 function setup(env) {
     myEnv = env;
     console.log('goblin-bot is ready');
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
 function gobSpik(gobsTekst) {
@@ -35,6 +41,7 @@ function gobSpik(gobsTekst) {
             prevSooperUrSub = shudSooperOrSub;
         }
     } catch (err) {
+        console.error(err);
         console.error('err spikin gobs');
         return gobsTekst;
     }
