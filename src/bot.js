@@ -12,37 +12,32 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function superOrSub(superScript, str) {
+    if (superScript) {
+        return superscript(str);
+    }
+    return subscript(str);
+}
+
 function gobSpik(gobsTekst) {
     try {
         var reternTekst = '';
-        var shudSooperOrSub = 0;
-        var prevSooperUrSub = 0;
-        for (var i = 0; i < gobsTekst.length; i++) {
-            // two out of 3 times, uze preevus case to mak moar reedable
-            if (getRandomInt(3)) {
-                shudSooperOrSub = prevSooperUrSub;
-            } else {
-                shudSooperOrSub = getRandomInt(3);
-            }
+        var superScript = getRandomInt(2);
 
-            switch(shudSooperOrSub) {
+        for (var i = 0; i < gobsTekst.length; i++) {
+            switch(getRandomInt(2)) {
                 case 0:
                     reternTekst = reternTekst + gobsTekst.charAt(i);
                     break;
                 case 1:
-                    reternTekst = reternTekst + superscript(gobsTekst.charAt(i));
-                    break;
-                case 2:
-                    reternTekst = reternTekst + subscript(gobsTekst.charAt(i));
+                    reternTekst = reternTekst + superOrSub(superScript, gobsTekst.charAt(i));
                     break;
                 default:
                     // code block
             }        
-            prevSooperUrSub = shudSooperOrSub;
         }
     } catch (err) {
         console.error(err);
-        console.error('err spikin gobs');
         return gobsTekst;
     }
     return reternTekst;
@@ -52,12 +47,14 @@ function gobSpik(gobsTekst) {
 async function handleMessage(msg) {
     //console.log('messageCreate');
     if (msg.content.startsWith('!')) {
-        if (msg.content.startsWith('!g ')) {
-            var gobsTekst = msg.content.split('!g ').pop();
+        if (msg.content.startsWith('!go ')) {
+            var gobsTekst = msg.content.split('!go ').pop();
             if (gobsTekst.length > 0) {
                 msg.reply(gobSpik(gobsTekst));
             } else {
-                msg.reply('aaarfghyueee nuthn to say?');
+                if (myEnv.unknownMsgReplyWithUsage()) {
+                    msg.reply('aaarfghyueee nuthn to say?');
+                }
             }
         } 
     }
