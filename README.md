@@ -1,4 +1,4 @@
-# goblinbot
+# GoblinBot
 a bᵒᵗ ₜₒ ˢᵖⁱk gobₗᵢₙ ᵢⁿ ᵈⁱₛᶜᵒₒord soᵒʳᵛᵘʳˢ
 
 A nodejs bot to speak goblin in discord servers.
