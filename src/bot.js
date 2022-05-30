@@ -53,7 +53,7 @@ async function handleMessage(msg) {
     //console.log('messageCreate');
     if (msg.content.startsWith('!')) {
         if (msg.content.startsWith('!g ')) {
-            var gobsTekst = msg.content.split(' ').pop();
+            var gobsTekst = msg.content.split('!g ').pop();
             if (gobsTekst.length > 0) {
                 msg.reply(gobSpik(gobsTekst));
             } else {
