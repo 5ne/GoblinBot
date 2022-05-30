@@ -52,8 +52,8 @@ function gobSpik(gobsTekst) {
 async function handleMessage(msg) {
     //console.log('messageCreate');
     if (msg.content.startsWith('!')) {
-        if (msg.content.startsWith('!go ')) {
-            var gobsTekst = msg.content.split('!go ').pop();
+        if (msg.content.startsWith('!g ')) {
+            var gobsTekst = msg.content.split(' ').pop();
             if (gobsTekst.length > 0) {
                 msg.reply(gobSpik(gobsTekst));
             } else {
