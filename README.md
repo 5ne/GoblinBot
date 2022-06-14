@@ -8,11 +8,11 @@ Easily deployable to Heroku and Discord
 Invite the bot to your Discord server and type:
 
 ```text
-!go dis iz da bst discooord tool goblins
+!g dis iz da bst discooord tool goblins
 ```
 
 Bot will respond with:
 
 ```
-a bᵒᵗ ₜₒ ˢᵖⁱk gobₗᵢₙ ᵢⁿ ᵈⁱₛᶜᵒₒord soᵒʳᵛᵘʳˢ
+ᵈⁱˢ iz da bˢt discoᵒoʳᵈ ᵗooˡ goᵇlⁱns
 ```
